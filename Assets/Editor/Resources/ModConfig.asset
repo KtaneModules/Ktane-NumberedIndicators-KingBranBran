@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: numIndicators
   title: Numbered Indicators
-  description: The indicators have numbers now!
+  description: "The indicators have numbers now!\r\n\r\nHTML: https://ktane.timwi.de/HTML/Numbered%20Indicators.html\r\nPDF:
+    https://ktane.timwi.de/PDF/Numbered%20Indicators.pdf\r\n\r\nwidgetID: numIndicators"
   version: 1
   outputFolder: C:\Users\kingb\OneDrive\Documents\KTANE Mods\AssetBundles
-  previewImage: {fileID: 2800000, guid: 4fafb3516c84b4240bb442ac07a854ca, type: 3}
+  previewImage: {fileID: 2800000, guid: 38731d7f876ebca4ba0b99b0fbfdd13f, type: 3}

@@ -8,13 +8,17 @@ public class NumberInd : MonoBehaviour {
     public TextMesh NumberText;
     public Material White;
     public Material Black;
+    public Material[] BackColors;
     public GameObject LightColor;
+    public GameObject Back;
+    string color;
     int number1;
     int number2;
     int number3;
     int letter1;
     int letter2;
     int letter3;
+    int colorNum;
     string display;
     string actual;
     string on;
@@ -25,20 +29,25 @@ public class NumberInd : MonoBehaviour {
         GetComponent<KMWidget>().OnQueryRequest += GetQueryResponse;
         GetComponent<KMWidget>().OnWidgetActivate += Activate;
 
+        colorNum = Random.Range(0, BackColors.Length);
         number1 = Random.Range(0, 10);
         number2 = Random.Range(0, 10);
         number3 = Random.Range(0, 10);
-        letter1 = (number1 % 3 * 10 + number2) % 26;
+        letter1 = (number1 + 20) % 26;
         letter1 += letter1 == 0 ? 26 : 0;
-        letter2 = (number2 % 3 * 10 + number3) % 26;
+        letter2 = (number2 + 10);
         letter2 += letter2 == 0 ? 26 : 0;
-        letter3 = (number3 % 3 * 10 + number1) % 26;
+        letter3 = (number3);
         letter3 += letter3 == 0 ? 26 : 0;
         lit = 0 == Random.Range(0, 2);
 
         display = "" + number1 + number2 + number3;
         actual = Number2String(letter1, true) + Number2String(letter2, true) + Number2String(letter3, true);
         on = lit ? "true" : "false";
+
+        Back.GetComponent<Renderer>().material = BackColors[colorNum];
+
+        Debug.LogFormat("[NumberedIndicator] Added {0} {1}, display is {2}, color is {3}", lit ? "LIT" : "UNLIT", actual, display, BackColors[colorNum].name.ToUpperInvariant());
     }
 
     private string Number2String(int number, bool isCaps)
@@ -53,7 +62,6 @@ public class NumberInd : MonoBehaviour {
     {
         NumberText.text = display;
         LightColor.GetComponent<Renderer>().material = lit ? White : Black;
-        Debug.LogFormat("{0} {1}", lit ? "lit" : "unlit", actual);
     }
 
     public string GetQueryResponse(string queryKey, string queryInfo)
@@ -64,8 +72,10 @@ public class NumberInd : MonoBehaviour {
             response.Add("display", display);
             response.Add("label", actual);
             response.Add("on", on);
+            response.Add("color", BackColors[colorNum].name.ToLowerInvariant());
             string responseStr = JsonConvert.SerializeObject(response);
             return responseStr;
+           
         }
 
         return "";
