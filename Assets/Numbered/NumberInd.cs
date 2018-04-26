@@ -43,7 +43,7 @@ public class NumberInd : MonoBehaviour {
 
         display = "" + number1 + number2 + number3;
         actual = Number2String(letter1, true) + Number2String(letter2, true) + Number2String(letter3, true);
-        on = lit ? "true" : "false";
+        on = lit ? "True" : "False";
 
         Back.GetComponent<Renderer>().material = BackColors[colorNum];
 
