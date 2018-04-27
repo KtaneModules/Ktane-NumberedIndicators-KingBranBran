@@ -38,7 +38,7 @@ public class NumberInd : MonoBehaviour {
 
     void ChooseIndicator()
     {
-        if (Random.Range(0, 2) == 5)
+        if (Random.Range(0, 2) == 0)
         {
             number1 = Random.Range(0, 10);
             number2 = Random.Range(0, 10);
