@@ -34,7 +34,6 @@ public class NumberInd : MonoBehaviour {
         GetComponent<KMBombInfo>().OnBombSolved += ClearList;
 
         ChooseIndicator();
-        Activate();
     }
 
     void ChooseIndicator()
