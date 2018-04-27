@@ -11,6 +11,8 @@ public class NumberInd : MonoBehaviour {
     public Material[] BackColors;
     public GameObject LightColor;
     public GameObject Back;
+    static List<string> used = new List<string>();
+    string[] common = {"CLR", "IND", "TRN", "FRK", "CAR", "FRQ", "NSA", "SIG", "MSA", "SND", "BOB"};
     string color;
     int number1;
     int number2;
@@ -28,32 +30,59 @@ public class NumberInd : MonoBehaviour {
     {
         GetComponent<KMWidget>().OnQueryRequest += GetQueryResponse;
         GetComponent<KMWidget>().OnWidgetActivate += Activate;
+        GetComponent<KMBombInfo>().OnBombExploded += ClearList;
+        GetComponent<KMBombInfo>().OnBombSolved += ClearList;
+
+        ChooseIndicator();
+        Activate();
+    }
+
+    void ChooseIndicator()
+    {
+        if (Random.Range(0, 2) == 5)
+        {
+            number1 = Random.Range(0, 10);
+            number2 = Random.Range(0, 10);
+            number3 = Random.Range(0, 10);
+            letter1 = (number1 + 20) % 26;
+            letter1 += letter1 == 0 ? 26 : 0;
+            letter2 = (number2 + 10);
+            letter2 += letter2 == 0 ? 26 : 0;
+            letter3 = (number3);
+            letter3 += letter3 == 0 ? 26 : 0;
+            display = "" + number1 + number2 + number3;
+            if (used.Contains(display))
+            {
+                ChooseIndicator();
+                return;
+            }
+            actual = Number2String(letter1, true) + Number2String(letter2, true) + Number2String(letter3, true);
+            used.Add(display);
+        }
+        else
+        {
+            int c = Random.Range(0, common.Length);
+            if (used.Contains(common[c]))
+            {
+                ChooseIndicator();
+                return;
+            }
+            actual = common[c];
+            display = common[c];
+            used.Add(actual);
+        }
 
         colorNum = Random.Range(0, BackColors.Length);
-        number1 = Random.Range(0, 10);
-        number2 = Random.Range(0, 10);
-        number3 = Random.Range(0, 10);
-        letter1 = (number1 + 20) % 26;
-        letter1 += letter1 == 0 ? 26 : 0;
-        letter2 = (number2 + 10);
-        letter2 += letter2 == 0 ? 26 : 0;
-        letter3 = (number3);
-        letter3 += letter3 == 0 ? 26 : 0;
         lit = 0 == Random.Range(0, 2);
-
-        display = "" + number1 + number2 + number3;
-        actual = Number2String(letter1, true) + Number2String(letter2, true) + Number2String(letter3, true);
         on = lit ? "True" : "False";
 
         Back.GetComponent<Renderer>().material = BackColors[colorNum];
-
         Debug.LogFormat("[NumberedIndicator] Added {0} {1}, display is {2}, color is {3}", lit ? "LIT" : "UNLIT", actual, display, BackColors[colorNum].name.ToUpperInvariant());
     }
 
     private string Number2String(int number, bool isCaps)
     {
         char c = (char)((isCaps ? 65 : 97) + (number - 1));
-
         return c.ToString();
     }
 
@@ -79,5 +108,10 @@ public class NumberInd : MonoBehaviour {
         }
 
         return "";
+    }
+
+    public void ClearList()
+    {
+        used.Clear();
     }
 }
