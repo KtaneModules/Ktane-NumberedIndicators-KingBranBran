@@ -16,5 +16,5 @@ MonoBehaviour:
   description: "The indicators have numbers now!\r\n\r\nHTML: https://ktane.timwi.de/HTML/Numbered%20Indicators.html\r\nPDF:
     https://ktane.timwi.de/PDF/Numbered%20Indicators.pdf\r\n\r\nwidgetID: numIndicators"
   version: 1
-  outputFolder: C:\Users\kingb\OneDrive\Documents\KTANE Mods\AssetBundles
+  outputFolder: C:\Users\kingb\Desktop\KTANE Stuffs\AssetBundles
   previewImage: {fileID: 2800000, guid: 38731d7f876ebca4ba0b99b0fbfdd13f, type: 3}
