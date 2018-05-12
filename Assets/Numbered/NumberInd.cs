@@ -101,9 +101,9 @@ public class NumberInd : MonoBehaviour {
             response.Add("label", actual);
             response.Add("on", on);
             response.Add("color", BackColors[colorNum].name.ToLowerInvariant());
+            response.Add("isNumbered", "true");
             string responseStr = JsonConvert.SerializeObject(response);
             return responseStr;
-           
         }
 
         return "";
