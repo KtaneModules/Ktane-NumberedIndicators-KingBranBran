@@ -219,7 +219,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 81d2845be2c9afa49a8643656f145741, type: 2}
+  - {fileID: 2100000, guid: 27b3b8bae14dce74ba3ea15ca33da948, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -480,18 +480,13 @@ MonoBehaviour:
   White: {fileID: 2100000, guid: 1a9042b85c2315646834d101bdc57982, type: 2}
   Black: {fileID: 2100000, guid: 09041b50bc431cd448d7dacf9639970d, type: 2}
   BackColors:
-  - {fileID: 2100000, guid: 078e6d8d14e69324d87863dce272a8fb, type: 2}
   - {fileID: 2100000, guid: 81d2845be2c9afa49a8643656f145741, type: 2}
   - {fileID: 2100000, guid: b5258f703d49eb04bbcee748ceaef773, type: 2}
   - {fileID: 2100000, guid: 27b3b8bae14dce74ba3ea15ca33da948, type: 2}
   - {fileID: 2100000, guid: 5cbcc4c913cb1fa4981ecbd34c267aef, type: 2}
-  - {fileID: 2100000, guid: 83493c80038e0c44aa18482e4e68ec3d, type: 2}
-  - {fileID: 2100000, guid: 69ce6ec368b5804419f08fca6231e95e, type: 2}
   - {fileID: 2100000, guid: ebe26f7d0a89f494fb578120bdada94e, type: 2}
   - {fileID: 2100000, guid: f200f9797b6ec954180c31989a7324f0, type: 2}
-  - {fileID: 2100000, guid: a909dc6a20667f846968ad99ca4f4861, type: 2}
   - {fileID: 2100000, guid: aa449eead3594e24e840937a610b99a5, type: 2}
-  - {fileID: 2100000, guid: c4bd20b6bc9b2f943b7a2ae9406dea11, type: 2}
   - {fileID: 2100000, guid: 1a9042b85c2315646834d101bdc57982, type: 2}
   - {fileID: 2100000, guid: c07c1365cd1fbb1469caefa155e55477, type: 2}
   LightColor: {fileID: 1677918622534000}
